@@ -1,3 +1,5 @@
+import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Users {
 	String firstName;
@@ -9,6 +11,8 @@ public class Users {
 	String password;
 	String email;
 	String SSN;
+	String addressCity;
+	String addressState;
 	
 	Users(){
 		
@@ -21,74 +25,172 @@ public class Users {
 	String getFirstName(){
 		return firstName;
 	}
-	String getLastName(){
+	String  getLastName(){
 		return lastName;
 	}
-	String getUserName(){
+	String  getUserName(){
 		return userName;
 	}
-	String getSSN(){
+	String  getSSN(){
 		return SSN;
 	}
-	String getState(){
+	String  getState(){
 		return state;
 	}
-	String getZipCode(){
+	String  getZipCode(){
 		return zipCode;
 	}
-	String getAddress(){
+	String  getAddress(){
 		return address;
 	}
-	String getPassword(){
+	String  getAddressState(){
+		return addressState;
+	}
+	String  getAddressCity(){
+		return addressCity;
+	}
+	String  getPassword(){
 		return password;
 	}
-	String getEmail(){
-		return firstName;
+	String  getEmail(){
+		return email;
 	}
 	
 	//setters 
-	void setFirstName(String str){
+	void setFirstName(){
+		System.out.println("Enter user's first name");
+		 Scanner input = new Scanner(System.in);
+		 String str = input.nextLine();
 		 firstName = str;
 	}
-	void setLastName(String str){
+	void setLastName(){
+		System.out.println("Enter desired user's last ame");
+		 Scanner input = new Scanner(System.in);
+		 String str = input.nextLine();
 		 lastName = str;
 	}
-	void setUserName(String str){
+	//
+	void setUserName(){
+		 System.out.println("Enter desired username");
+		 Scanner input = new Scanner(System.in);
+		 String str = input.nextLine();
 		 userName = str;
+	//will need to if/else add function to check for uniqueness	 
 	}
-	void setSSN(String str){
-		 SSN = str;
+	void setSSN(){
+		 System.out.println("Enter user's Social Security Number in the format NNN-NN-NNNN");
+		Scanner input = new Scanner(System.in);
+		String str = input.nextLine();
+		if (str.matches("\\d{3}(-)?\\d{2}(-)?\\d{4}")){
+		SSN = str;
+		}
+		else{
+			 System.out.println("Invalid SSN");
+			 return;
+		}
+		
 	}
-	void setState(String str){
+	void setState(String  str){
 		 state = str;
 	}
-	void setZipCode(String str){
-		 zipCode = str;
+	void setZipCode(){
+		System.out.println("Enter five digit zipcode");
+		Scanner input = new Scanner(System.in);
+		String str = input.nextLine();
+		if(str.matches("\\d{5}")){
+			zipCode = str;
+		}
+		else{
+			System.out.println("Invalid zip code");
+			return;
+			}
+		}
+		 
+	void setAddressState(){
+		System.out.println("Enter your state of residence.");
+		Scanner input = new Scanner(System.in);
+		 String str = input.nextLine();
+		 str=addressState;
 	}
-	void setAddress(String str){
-		address = str;
+	void setAddressCity(){
+		System.out.println("Enter your city of residence.");
+		Scanner input = new Scanner(System.in);
+		 String str = input.nextLine();
+		 str=addressCity;
 	}
-	void setPassword(String str){
-		 password = str;
+	
+	void setAddress(){
+		
+		setAddressCity();
+		setAddressState();
 	}
-	void setEmail(String str){
-		firstName = str;
+	void setPassword(){
+		System.out.println("Enter the new password. Passwords must be 8-24 charcters long and ay only include letters,numbers, and underscores.");
+		Scanner input = new Scanner(System.in);
+		 String str = input.nextLine();
+		 //v
+		if(str.matches("\\w{8,24}")){
+		password = str;
+		}
+	}
+	void setEmail(){
+		System.out.println("Enter user's email address.");
+		 Scanner input = new Scanner(System.in);
+		 String str = input.nextLine();
+		 //v
+		if(str.matches("\\w+[^\\.\\@]*@\\w+\\.\\com")){
+		/*check email syntax. 1 or more number or digit followed by 0 
+			or more non "." or @ characters followed @ 
+			then 1 or more word characters followed by ".com"
+			
+			*/
+		email = str;
+		}
+		else{
+			System.out.println("Invalid Email address.");
+			return;
+		}
 	}
 	//customer subclass
 	public class Customer extends Users{
 		//customer default constructor
 		Customer(){
-			
+			//needs search method
+			//needs methods for booking and cancelling flights
+			// bookFlight() should add Customer object to passengerList<>
+			//bookFlight() should increment passengerCount 
 		}
 	}
 	
 	private class Admin extends Users{
 		//Admin subclass default constructor
+		
 		Admin(){
 			
 		}
+		ArrayList<Flights> flightList = new ArrayList<Flights>();//stores all flights in an array list
+		void createFlight(){
+			Flights newFlight = new Flights();//create new Flights object
+			flightList.add(newFlight);//adds newly created flight to flightList at last index
+		}
+		//CREATE FLIGHT method
+		/* void createFlight(){
+			Flight newFlight = new Flights();
+			flightList.add(newFlight);
+		}
+		*/
+		//DELETE FLIGHT method
+		void deleteFlight(){
+			//flightList.remove(); use .remove fuction to remove specified object from flightList
+		}
+		//UPDATE FLIGHT 
+		void updateFlight(){
+			//access getters and setters for selected flight object
+		}
+		//
 		
 		//
+		
 	}
 	
 }
