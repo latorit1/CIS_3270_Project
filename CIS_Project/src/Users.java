@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 
-public class Users {
+public abstract class Users {
 	String firstName;
 	String lastName;
 	String address;
@@ -14,49 +14,6 @@ public class Users {
 	String addressCity;
 	String addressState;
 	
-	Users(){
-		
-	}
-	
-	public static void main(String[] args) {
-		
-
-	}
-	String getFirstName(){
-		return firstName;
-	}
-	String  getLastName(){
-		return lastName;
-	}
-	String  getUserName(){
-		return userName;
-	}
-	String  getSSN(){
-		return SSN;
-	}
-	String  getState(){
-		return state;
-	}
-	String  getZipCode(){
-		return zipCode;
-	}
-	String  getAddress(){
-		return address;
-	}
-	String  getAddressState(){
-		return addressState;
-	}
-	String  getAddressCity(){
-		return addressCity;
-	}
-	String  getPassword(){
-		return password;
-	}
-	String  getEmail(){
-		return email;
-	}
-	
-	//setters 
 	void setFirstName(){
 		System.out.println("Enter user's first name");
 		 Scanner input = new Scanner(System.in);
@@ -123,6 +80,7 @@ public class Users {
 		
 		setAddressCity();
 		setAddressState();
+		setZipCode();//added to set Address
 	}
 	void setPassword(){
 		System.out.println("Enter the new password. Passwords must be 8-24 charcters long and ay only include letters,numbers, and underscores.");
@@ -151,6 +109,59 @@ public class Users {
 			return;
 		}
 	}
+	Users(){
+		setFirstName();
+		setLastName();
+		setAddress();
+		setSSN();
+		setEmail();
+		setUserName();
+		setPassword();
+		
+	}
+	
+	public static void main(String[] args) {
+		
+
+	}
+	String getFirstName(){
+		return firstName;
+	}
+	String  getLastName(){
+		return lastName;
+	}
+	String  getUserName(){
+		return userName;
+	}
+	String  getSSN(){
+		return SSN;
+	}
+	String  getState(){
+		return state;
+	}
+	String  getZipCode(){
+		return zipCode;
+	}
+	String  getAddress(){
+		return address;
+	}
+	String  getAddressState(){
+		return addressState;
+	}
+	String  getAddressCity(){
+		return addressCity;
+	}
+	String  getPassword(){
+		return password;
+	}
+	String  getEmail(){
+		return email;
+	}
+	
+	//setters 
+	
+	
+	
 	//customer subclass
 	public class Customer extends Users{
 		//customer default constructor
