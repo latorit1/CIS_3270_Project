@@ -6,20 +6,20 @@ import java.util.Date;
 import java.util.ArrayList;
 import java.util.Scanner;
 	class Flights {
-	static int flightCount = 0;//used to generate flight numbers will increment every time a new Flights object is created
-	Integer flightNumber;
-	Date departureDate;
-	Date departureTime;
-	Date arrivalDate;
-	Date arrivalTime;
-	String departureCity;
-	String departureState;
-	String arrivalCity;
-	String arrivalState;
+	private static int flightCount = 0;//used to generate flight numbers will increment every time a new Flights object is created
+	private Integer flightNumber;
+	private Date departureDate;
+	private Date departureTime;
+	private Date arrivalDate;
+	private Date arrivalTime;
+	private String departureCity;
+	private String departureState;
+	private String arrivalCity;
+	private String arrivalState;
 	
-	int passengerCount;
-	int maxCapacity;
-
+	private int passengerCount;
+	private int maxCapacity;
+	HashMap<String,Users> passengerList = new HashMap<String,Users>();//hashmap containing all passengers, will use userName as the key
 	
 	
 	//Date and time formatters. 
@@ -110,7 +110,7 @@ import java.util.Scanner;
 		setArrivalState();
 		setArrivalDate();
 		setArrivalTime();
-		HashMap<String,Users> passengerList = new HashMap<String,Users>();//hashmap containing all passengers, will use userName as the key
+		
 		passengerCount = 0;
 		setMaxCapacity();
 		flightCount++;//static int variable increments by one each time a new Flights object is created. 
@@ -148,22 +148,25 @@ import java.util.Scanner;
 	}
 	//check to see if flight is full. 
 	boolean getIsFull(){
-		return this.passengerCount>=this.maxCapacity;
+		return this.passengerCount>=this.maxCapacity;//if passenger COunt is greater than or equal to the max capacity of the flight, will inform user that flight is full and prevent them from booking the flight
 	}
 	Integer getFlightNumber(){
 		return flightNumber;
 	}
+	
+	
 	void addPassenger(String str){
 		if(getIsFull()==true){
 			System.out.println("Sorry! This flight is full.");
 			return;
 		}
+		//
 		passengerList.put(str,Users);
 	}
 	@Override
 	public String toString(){//getting error message on departure Time
-		editing toString System.out.println("Flight " + flightNumber+ "\nDeparture: " +departureCity+" , "+departureState+"\n"+departureDate+" "+departureTime);
-		return this.departureCity;
+		System.out.println("Flight " + flightNumber+ "\nFrom: " +departureCity+" , "+departureState+"\n"+departureDate+" "+departureTime+ "\nTo: "+ arrivalCity+ ", " +arrivalState+"\n"+arrivalDate+arrivalTime);
+		return "Flight " + this.flightNumber+ "\nFrom: " +this.departureCity+" , "+this.departureState+"\n"+this.departureDate+" "+this.departureTime+ "\nTo: "+ this.arrivalCity+ ", " +this.arrivalState+"\n"+this.arrivalDate+this.arrivalTime;
 	}
 }
 	

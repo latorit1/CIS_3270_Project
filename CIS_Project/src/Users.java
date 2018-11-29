@@ -11,13 +11,13 @@ public abstract class Users {
 	private String lastName;
 	private String address;
 	private String zipCode;
-	String state;
-	String userName;
-	String password;
-	String email;
-	String SSN;
-	String addressCity;
-	String addressState;
+	private String state;
+	private String userName;
+	private String password;
+	private String email;
+	private String SSN;
+	private String addressCity;
+	private String addressState;
 	
 	void setFirstName(){
 		System.out.println("Enter user's first name");
