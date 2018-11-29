@@ -161,7 +161,7 @@ import java.util.Scanner;
 			return;
 		}
 		//
-		passengerList.put(str, userList.get(str));
+		passengerList.put(str,DataStorage.getUserList().get(str));
 	}
 	@Override
 	public String toString(){//getting error message on departure Time

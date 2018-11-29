@@ -2,9 +2,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 public class Account {
 	//HashMap containing all flights.Key is flightNumber
-	HashMap<Integer,Flights>flightList = new HashMap<Integer,Flights>();
+	static HashMap<Integer,Flights>flightList = new HashMap<Integer,Flights>();
 	//HashMap holding all registered users. Key is userName
-	HashMap<String,Users>userList = new HashMap<String,Users>();
+	 static HashMap<String,Users>userList = new HashMap<String,Users>();
 	public static void main(String[] args) {
 		
 		//create flight method increment flight count and set flight key = to that number;
