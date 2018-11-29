@@ -1,11 +1,16 @@
 import java.util.Scanner;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public abstract class Users {
-	String firstName;
-	String lastName;
-	String address;
-	String zipCode;
+	HashMap<Integer,Flights> flightList = new HashMap<Integer,Flights>();//hashmap containing all flights. Key will be Flight Number
+
+	
+	private String firstName;
+	private String lastName;
+	private String address;
+	private String zipCode;
 	String state;
 	String userName;
 	String password;
@@ -117,13 +122,9 @@ public abstract class Users {
 		setEmail();
 		setUserName();
 		setPassword();
-		
+		ArrayList<Flights> bookedFlights = new ArrayList<Flights>();//each user will have an array list of booked flights than can be searched or manipulated
 	}
 	
-	public static void main(String[] args) {
-		
-
-	}
 	String getFirstName(){
 		return firstName;
 	}
@@ -157,7 +158,9 @@ public abstract class Users {
 	String  getEmail(){
 		return email;
 	}
-	
+	void addFlight(Flights f){
+		put
+	}
 	//setters 
 	
 	
@@ -171,6 +174,7 @@ public abstract class Users {
 			// bookFlight() should add Customer object to passengerList<>
 			//bookFlight() should increment passengerCount 
 		}
+		
 	}
 	
 	private class Admin extends Users{
@@ -179,10 +183,10 @@ public abstract class Users {
 		Admin(){
 			
 		}
-		ArrayList<Flights> flightList = new ArrayList<Flights>();//stores all flights in an array list
+		//stores all flights in an array list
 		void createFlight(){
 			Flights newFlight = new Flights();//create new Flights object
-			flightList.add(newFlight);//adds newly created flight to flightList at last index
+			flightList.add(newFlight.getFlightNumber(),newFlight);//adds newly created flight to flightList at last index
 		}
 		//CREATE FLIGHT method
 		/* void createFlight(){

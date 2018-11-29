@@ -1,4 +1,4 @@
-
+import java.util.HashMap;
 import java.text.ParseException;
 
 import java.text.SimpleDateFormat;
@@ -6,15 +6,21 @@ import java.util.Date;
 import java.util.ArrayList;
 import java.util.Scanner;
 	class Flights {
+	static int flightCount = 0;//used to generate flight numbers will increment every time a new Flights object is created
+	Integer flightNumber;
 	Date departureDate;
 	Date departureTime;
 	Date arrivalDate;
 	Date arrivalTime;
 	String departureCity;
+	String departureState;
 	String arrivalCity;
-
+	String arrivalState;
+	
 	int passengerCount;
 	int maxCapacity;
+
+	
 	
 	//Date and time formatters. 
 	SimpleDateFormat dateFormatter = new SimpleDateFormat("MM/dd/yyyy");
@@ -74,26 +80,42 @@ import java.util.Scanner;
 		}
 	}
 	void setDepartureCity(){
-		System.out.println("Input city and state that the flight will depart from.");
+		System.out.println("Input city that the flight will depart from.");
 		Scanner input = new Scanner(System.in);
 		departureCity = input.nextLine();
+	}
+	void setDepartureState(){
+		System.out.println("Input state that the flight will depart from.");
+		Scanner input = new Scanner(System.in);
+		departureState = input.nextLine();
 	}
 	void setArrivalCity(){
 		
 		System.out.println("Input city and state that the flight will arrive at.");
 		Scanner input = new Scanner(System.in);
-		departureCity = input.nextLine();
+		arrivalCity = input.nextLine();
+	}
+	void setArrivalState(){
+		
+		System.out.println("Input city and state that the flight will arrive at.");
+		Scanner input = new Scanner(System.in);
+		arrivalState = input.nextLine();
 	}
 	Flights(){
 		setDepartureCity();
+		setDepartureState();
 		setDepartureDate();
 		setDepartureTime();
 		setArrivalCity();
+		setArrivalState();
 		setArrivalDate();
 		setArrivalTime();
-		ArrayList<Users> passengerList = new ArrayList<Users>();
+		HashMap<String,Users> passengerList = new HashMap<String,Users>();//hashmap containing all passengers, will use userName as the key
 		passengerCount = 0;
 		setMaxCapacity();
+		flightCount++;//static int variable increments by one each time a new Flights object is created. 
+		flightNumber = (Integer)flightCount;//flightNumber is set to the current FlightCount and then cast to an Integer
+		
 	
 	}
 	
@@ -103,8 +125,14 @@ import java.util.Scanner;
 	String getDepartureCity(){
 		return departureCity;
 	}
+	String getDepartureState(){
+		return departureState;
+	}
 	String getArrivalCity(){
 		return arrivalCity;
+	}
+	String getArrivalState(){
+		return arrivalState;
 	}
 	Date getDepartureTime(){
 		return departureTime;
@@ -118,6 +146,24 @@ import java.util.Scanner;
 	int getMaxCapacity(){
 		return maxCapacity;
 	}
-	
+	//check to see if flight is full. 
+	boolean getIsFull(){
+		return this.passengerCount>=this.maxCapacity;
 	}
+	Integer getFlightNumber(){
+		return flightNumber;
+	}
+	void addPassenger(String str){
+		if(getIsFull()==true){
+			System.out.println("Sorry! This flight is full.");
+			return;
+		}
+		passengerList.put(str,Users);
+	}
+	@Override
+	public String toString(){//getting error message on departure Time
+		editing toString System.out.println("Flight " + flightNumber+ "\nDeparture: " +departureCity+" , "+departureState+"\n"+departureDate+" "+departureTime);
+		return this.departureCity;
+	}
+}
 	
