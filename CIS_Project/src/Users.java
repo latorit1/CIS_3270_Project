@@ -5,7 +5,7 @@ import java.util.HashMap;
 
 public abstract class Users {
 	HashMap<Integer,Flights> flightList = new HashMap<Integer,Flights>();//hashmap containing all flights. Key will be Flight Number
-
+	static HashMap<String,Users> userList = new HashMap<String,Users>();
 	
 	private String firstName;
 	private String lastName;
@@ -122,7 +122,7 @@ public abstract class Users {
 		setEmail();
 		setUserName();
 		setPassword();
-		ArrayList<Flights> bookedFlights = new ArrayList<Flights>();//each user will have an array list of booked flights than can be searched or manipulated
+		HashMap<Integer,Flights> bookedFlights = new HashMap<Integer,Flights>();//each user will have a hash map of booked flights that can be searched or manipulated
 	}
 	
 	String getFirstName(){
@@ -159,7 +159,7 @@ public abstract class Users {
 		return email;
 	}
 	void addFlight(Flights f){
-		put
+		flightList.put(f.getFlightNumber(), f);
 	}
 	//setters 
 	
