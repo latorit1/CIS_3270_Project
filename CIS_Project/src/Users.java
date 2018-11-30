@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public abstract class Users {
-	HashMap<Integer,Flights> flightList = new HashMap<Integer,Flights>();//hashmap containing all flights. Key will be Flight Number
-	static HashMap<String,Users> userList = new HashMap<String,Users>();
+	//HashMap<Integer,Flights> flightList = new HashMap<Integer,Flights>();//hashmap containing all flights. Key will be Flight Number
+	//static HashMap<String,Users> userList = new HashMap<String,Users>(); relocated. to Account Class Delete on final version
 	
 	private String firstName;
 	private String lastName;
@@ -18,6 +18,7 @@ public abstract class Users {
 	private String SSN;
 	private String addressCity;
 	private String addressState;
+	HashMap<Integer,Flights> bookedFlights = new HashMap<Integer,Flights>();
 	
 	void setFirstName(){
 		System.out.println("Enter user's first name");
@@ -158,8 +159,10 @@ public abstract class Users {
 	String  getEmail(){
 		return email;
 	}
-	void addFlight(Flights f){
-		flightList.put(f.getFlightNumber(), f);
+	// addFlight method uses put() method to search flightList<> and add the desired flight to bookedFlights<> using the flightNumber (Integer i) as the key.
+	//
+	void addFlight(Integer i){
+		bookedFlights.put(i,DataStorage.getFlightList().get(i));
 	}
 	//setters 
 	
@@ -194,18 +197,28 @@ public abstract class Users {
 			flightList.add(newFlight);
 		}
 		*/
-		//DELETE FLIGHT method
-		void deleteFlight(){
-			//flightList.remove(); use .remove fuction to remove specified object from flightList
+		//DELETE FLIGHT method searches
+		void deleteFlight(Integer i){
+			DataStorage.getFlightList().remove(i); //use .remove fuction to remove specified object from flightList
 		}
 		//UPDATE FLIGHT 
-		void updateFlight(){
+		void updateFlight(Integer i){
 			//access getters and setters for selected flight object
+			DataStorage.getFlightList().get(i).setDepartureCity();
+			DataStorage.getFlightList().get(i).setDepartureState();
+			DataStorage.getFlightList().get(i).setDepartureDate();
+			DataStorage.getFlightList().get(i).setDepartureTime();
+			DataStorage.getFlightList().get(i).setArrivalCity();
+			DataStorage.getFlightList().get(i).setArrivalState();
+			DataStorage.getFlightList().get(i).setArrivalDate();
+			DataStorage.getFlightList().get(i).setArrivalTime();
+		will need to update this to add more functionality
 		}
 		//
 		
 		//
 		
 	}
+	
 	
 }

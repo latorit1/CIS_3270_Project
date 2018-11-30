@@ -154,14 +154,14 @@ import java.util.Scanner;
 		return flightNumber;
 	}
 	
-	
+	//method will add 
 	void addPassenger(String str){
 		if(getIsFull()==true){
 			System.out.println("Sorry! This flight is full.");
 			return;
 		}
-		//
-		passengerList.put(str,DataStorage.getUserList().get(str));
+		//Method will add the user to the passengerList using the 
+		passengerList.put(str,DataStorage.getUserList().get(str));//should return userList<> and allow you to use the get() method to return the User assigned to that key
 	}
 	@Override
 	public String toString(){//getting error message on departure Time
