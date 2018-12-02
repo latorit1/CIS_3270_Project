@@ -73,7 +73,7 @@ public class Login {
 		}
 	}
 			
-	public void Registration (ActionEvent event) {
+	public void RegistrationButton (ActionEvent event) {
 		
 		try {
 			Stage primaryStage = new Stage();

@@ -15,40 +15,47 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+
+import com.mysql.cj.xdevapi.Result;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 
 public class Registration {
 	@FXML
+	private Label lblDone;@FXML
 	private TextField txtFirstName;@FXML
 	private TextField txtLastName;@FXML
 	private TextField txtAddress;@FXML
 	private TextField txtZipcode;@FXML
 	private TextField txtState;@FXML
-	private TextField txtUsername;@FXML
-	private TextField txtPassword;@FXML
+	private TextField txtUsernameR;@FXML
+	private TextField txtPasswordR;@FXML
 	private TextField txtEmail;@FXML
 	private TextField txtSocial;@FXML
 	private TextField txtSecurityQ;@FXML
 	private TextField txtSecurityA;
 	
-	public Registration () throws SQLException {
-		Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sys", "root", "AppDevCIS2018");
-		if (connection == null) {
-			
-			System.out.println("Connection is not successful");
-			System.exit(1);
-		}
+
+	public void toRegister(ActionEvent event) throws SQLException, IOException {
+		String FirstName = txtFirstName.getText();
+		String LastName = txtLastName.getText();
+		String Address = txtAddress.getText();
+		String Zipcode = txtZipcode.getText();
+		String State = txtState.getText();
+		String Username = txtUsernameR.getText();
+		String Password = txtPasswordR.getText();
+		String Email = txtEmail.getText();
+		String Social = txtSocial.getText();
+		String SecurityQ = txtSecurityQ.getText();
+		String SecurityA = txtSecurityA.getText();
 		
-	}
-	
-	public boolean toRegister(String FirstName,String LastName,String Address,String Zipcode,String State,String Username,String Password,String Email,String Social,String SecurityQ,String SecurityA) throws SQLException {
 		PreparedStatement ps = null;
-		ResultSet result = null;
+		
 		try {
 			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sys", "root", "AppDevCIS2018");
-			String sql = "INSERT INTO USER FROM VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+			String sql = "INSERT INTO User (firstName,LastName, address, zipCode, state, username, password, email, SSN, secQ, secA) VALUES  (?,?,?,?,?,?,?,?,?,?,?)";
 			ps = connection.prepareStatement(sql);
 			ps.setString(1, FirstName);
 			ps.setString(2, LastName);
@@ -60,31 +67,17 @@ public class Registration {
 			ps.setString(8, Email);
 			ps.setString(9, Social);
 			ps.setString(10, SecurityQ);
-			ps.setString(111, SecurityA);
-			result = ps.executeQuery();
+			ps.setString(11, SecurityA);
 			
-			if (result.next())
-			{
-				return true;	
-			} else {
-				Alert alert = new Alert(AlertType.CONFIRMATION, "Delete ?", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
-				alert.showAndWait();
-				return false;
-			}
-		} 
-		catch(SQLException e) {
+		} catch(Exception e) {
 			e.printStackTrace();
-			return false;
-		}
-		finally {
+			lblDone.setText("Please fill out all fields.");
+		} finally {
+			ps.execute();
+			lblDone.setText("User added. Press the back button to sign in.");
 			ps.close();
-			result.close();
 		}
 		
-		
-	}
-	
-	public void Submit(ActionEvent event) throws SQLException {
 		
 	}
 	

@@ -26,6 +26,6 @@
             </Label>
          </children>
       </Pane>
-      <Button layoutX="166.0" layoutY="262.0" mnemonicParsing="false" onAction="#Registration" text="Register" />
+      <Button layoutX="166.0" layoutY="262.0" mnemonicParsing="false" onAction="#RegistrationButton" text="Register" />
    </children>
 </AnchorPane>

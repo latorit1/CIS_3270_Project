@@ -69,11 +69,6 @@
             <Font name="AppleGothic Regular" size="13.0" />
          </font>
       </TextField>
-      <Text layoutX="130.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registration Form">
-         <font>
-            <Font name="ChaparralPro-Bold" size="34.0" />
-         </font>
-      </Text>
       <TextField fx:id="txtSecurityQ" layoutX="140.0" layoutY="323.0" promptText="Security Question">
          <font>
             <Font name="AppleGothic Regular" size="13.0" />
@@ -84,10 +79,15 @@
             <Font name="AppleGothic Regular" size="13.0" />
          </font>
       </TextField>
-      <Button layoutX="568.0" layoutY="318.0" mnemonicParsing="false" onAction="#Submit" style="-fx-background-color: #EA6262;" text="Submit">
+      <Button layoutX="568.0" layoutY="318.0" mnemonicParsing="false" onAction="#toRegister" style="-fx-background-color: #EA6262;" text="Submit">
          <font>
             <Font name="AppleGothic Regular" size="18.0" />
          </font>
       </Button>
+      <Label fx:id="lblDone" layoutX="140.0" text="Registration Form">
+         <font>
+            <Font name="AppleGothic Regular" size="39.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
