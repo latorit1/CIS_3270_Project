@@ -148,7 +148,7 @@ import java.util.Scanner;
 	}
 	//check to see if flight is full. 
 	boolean getIsFull(){
-		return this.passengerCount>=this.maxCapacity;//if passenger COunt is greater than or equal to the max capacity of the flight, will inform user that flight is full and prevent them from booking the flight
+		return this.passengerList.size()>=this.maxCapacity;//if size of passengerList<> is greater than or equal to the max capacity of the flight, will inform user that flight is full and prevent them from booking the flight
 	}
 	Integer getFlightNumber(){
 		return flightNumber;

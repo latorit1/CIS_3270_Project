@@ -37,7 +37,17 @@ public abstract class Users {
 		 System.out.println("Enter desired username");
 		 Scanner input = new Scanner(System.in);
 		 String str = input.nextLine();
-		 userName = str;
+		 //checks userList<> to see if specified userName is already taken
+		 //If username not taken, the entry will become the new userObject's username
+		 //If username is taken, program will notify that the isername is unavailable
+		if(DataStorage.getUserList().get(str)==null){
+			userName = str;
+		}
+		else{
+			System.out.println("Username already taken. Please choose another one.");
+			return;
+		}
+		 
 	//will need to if/else add function to check for uniqueness	 
 	}
 	void setSSN(){
@@ -163,6 +173,7 @@ public abstract class Users {
 	//
 	void addFlight(Integer i){
 		bookedFlights.put(i,DataStorage.getFlightList().get(i));
+		DataStorage.getFlightList().get(i).addPassenger(this.getUserName());
 	}
 	//setters 
 	
@@ -172,6 +183,7 @@ public abstract class Users {
 	public class Customer extends Users{
 		//customer default constructor
 		Customer(){
+			super();
 			//needs search method
 			//needs methods for booking and cancelling flights
 			// bookFlight() should add Customer object to passengerList<>
@@ -184,12 +196,12 @@ public abstract class Users {
 		//Admin subclass default constructor
 		
 		Admin(){
-			
+			super();
 		}
 		//stores all flights in an array list
 		void createFlight(){
 			Flights newFlight = new Flights();//create new Flights object
-			flightList.add(newFlight.getFlightNumber(),newFlight);//adds newly created flight to flightList at last index
+			DataStorage.getFlightList().put(newFlight.getFlightNumber(),newFlight);//adds newly created flight to flightList at last index
 		}
 		//CREATE FLIGHT method
 		/* void createFlight(){
@@ -212,7 +224,7 @@ public abstract class Users {
 			DataStorage.getFlightList().get(i).setArrivalState();
 			DataStorage.getFlightList().get(i).setArrivalDate();
 			DataStorage.getFlightList().get(i).setArrivalTime();
-		will need to update this to add more functionality
+		
 		}
 		//
 		
