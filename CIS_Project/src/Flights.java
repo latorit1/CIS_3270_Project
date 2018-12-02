@@ -163,6 +163,9 @@ import java.util.Scanner;
 		//Method will add the user to the passengerList using the 
 		passengerList.put(str,DataStorage.getUserList().get(str));//should return userList<> and allow you to use the get() method to return the User assigned to that key
 	}
+	void removePassenger(String str){
+		passengerList.remove(str,DataStorage.getUserList().get(str));
+	}
 	@Override
 	public String toString(){//getting error message on departure Time
 		System.out.println("Flight " + flightNumber+ "\nFrom: " +departureCity+" , "+departureState+"\n"+departureDate+" "+departureTime+ "\nTo: "+ arrivalCity+ ", " +arrivalState+"\n"+arrivalDate+arrivalTime);
