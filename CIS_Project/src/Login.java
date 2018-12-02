@@ -55,7 +55,7 @@ public class Login {
 					primaryStage.setScene(scene);
 					primaryStage.show();
 				} else {
-					lblLogin.setText("User and Password does not exist");
+					lblLogin.setText("User and Password does not exist, please register");
 				}			
 			}
 			
