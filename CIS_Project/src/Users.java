@@ -10,7 +10,7 @@ public abstract class Users {
 	
 	private String firstName;
 	private String lastName;
-	private String address;
+	private String addressStreet;
 	private String zipCode;
 	private String state;
 	private String userName;
@@ -79,7 +79,12 @@ public abstract class Users {
 			return;
 			}
 		}
-		 
+	void setAddressStreet(){
+		System.out.println("Enter your street address.");
+		Scanner input = new Scanner(System.in);
+		 String str = input.nextLine();
+		 str=addressStreet;
+	}	 
 	void setAddressState(){
 		System.out.println("Enter your state of residence.");
 		Scanner input = new Scanner(System.in);
@@ -94,10 +99,10 @@ public abstract class Users {
 	}
 	
 	void setAddress(){
-		
+		setAddressStreet();
 		setAddressCity();
 		setAddressState();
-		setZipCode();//added to set Address
+		setZipCode();
 	}
 	void setPassword(){
 		System.out.println("Enter the new password. Passwords must be 8-24 charcters long and ay only include letters,numbers, and underscores.");
@@ -134,7 +139,8 @@ public abstract class Users {
 		setEmail();
 		setUserName();
 		setPassword();
-		HashMap<Integer,Flights> bookedFlights = new HashMap<Integer,Flights>();//each user will have a hash map of booked flights that can be searched or manipulated
+		//each user will have a hash map of booked flights that can be searched or manipulated
+		HashMap<Integer,Flights> bookedFlights = new HashMap<Integer,Flights>();
 	}
 	
 	String getFirstName(){
@@ -155,8 +161,8 @@ public abstract class Users {
 	String  getZipCode(){
 		return zipCode;
 	}
-	String  getAddress(){
-		return address;
+	String  getAddressStreet(){
+		return addressStreet;
 	}
 	String  getAddressState(){
 		return addressState;
@@ -181,7 +187,10 @@ public abstract class Users {
 		DataStorage.getFlightList().get(i).removePassenger(this.getUserName());
 		
 	}
-
+	@Override
+	public String toString(){
+		return "Username:\t"+ userName+"\nName:\t"+ firstName+" "+lastName+"\nAdress:\t"+addressStreet+" "+addressCity+", "+addressState+" "+zipCode;
+	}
 	
 }
 //customer subclass
