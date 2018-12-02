@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Registration">
+   <children>
+      <Pane prefHeight="400.0" prefWidth="120.0" style="-fx-background-color: #EA6262;">
+         <children>
+            <ImageView fitHeight="195.0" fitWidth="184.0" layoutX="-32.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../Downloads/it6hhW-travel-best-logo-png.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="31.0" layoutY="324.0" mnemonicParsing="false" onAction="#switchScene" style="-fx-background-color: #000000;" text="Back" textFill="#d31717">
+               <font>
+                  <Font name="AppleGothic Regular" size="16.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <TextField fx:id="txtFirstName" layoutX="140.0" layoutY="64.0" promptText="First Name">
+         <font>
+            <Font name="AppleGothic Regular" size="13.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtLastName" layoutX="322.0" layoutY="64.0" promptText="Last Name">
+         <font>
+            <Font name="AppleGothic Regular" size="13.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtAddress" layoutX="140.0" layoutY="140.0" promptText="Address">
+         <font>
+            <Font name="AppleGothic Regular" size="13.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtZipcode" layoutX="322.0" layoutY="140.0" promptText="Zipcode">
+         <font>
+            <Font name="AppleGothic Regular" size="13.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtState" layoutX="510.0" layoutY="140.0" promptText="State">
+         <font>
+            <Font name="AppleGothic Regular" size="13.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtUsernameR" layoutX="140.0" layoutY="206.0" promptText="Username">
+         <font>
+            <Font name="AppleGothic Regular" size="13.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtPasswordR" layoutX="322.0" layoutY="206.0" promptText="Password">
+         <font>
+            <Font name="AppleGothic Regular" size="13.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtEmail" layoutX="140.0" layoutY="268.0" promptText="Email Address">
+         <font>
+            <Font name="AppleGothic Regular" size="13.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtSocial" layoutX="322.0" layoutY="268.0" promptText="Social Security #">
+         <font>
+            <Font name="AppleGothic Regular" size="13.0" />
+         </font>
+      </TextField>
+      <Text layoutX="130.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registration Form">
+         <font>
+            <Font name="ChaparralPro-Bold" size="34.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtSecurityQ" layoutX="140.0" layoutY="323.0" promptText="Security Question">
+         <font>
+            <Font name="AppleGothic Regular" size="13.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtSecurityA" layoutX="322.0" layoutY="323.0" promptText="Security Answer">
+         <font>
+            <Font name="AppleGothic Regular" size="13.0" />
+         </font>
+      </TextField>
+      <Button layoutX="568.0" layoutY="318.0" mnemonicParsing="false" onAction="#Submit" style="-fx-background-color: #EA6262;" text="Submit">
+         <font>
+            <Font name="AppleGothic Regular" size="18.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
