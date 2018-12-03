@@ -37,7 +37,7 @@ public class Registration {
 	private TextField txtSecurityQ;@FXML
 	private TextField txtSecurityA;
 	
-
+	// Clicking the submit will insert data into the database
 	public void toRegister(ActionEvent event) throws SQLException, IOException {
 		String FirstName = txtFirstName.getText();
 		String LastName = txtLastName.getText();
@@ -74,13 +74,16 @@ public class Registration {
 			lblDone.setText("Please fill out all fields.");
 		} finally {
 			ps.execute();
-			lblDone.setText("User added. Press the back button to sign in.");
+			Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setTitle("Success");
+			alert.setContentText("User added!Press the back button to login.");
+			alert.showAndWait();
 			ps.close();
 		}
 		
 		
 	}
-	
+	// Switch scenes; sends the user back to Login screen
 	public void switchScene(ActionEvent event) throws IOException {
 		Parent RegParent = FXMLLoader.load(getClass().getResource("Login.fxml"));
         Scene RegScene = new Scene(RegParent);
@@ -91,4 +94,9 @@ public class Registration {
         window.show();
 	
 	}
+	
+	
+	
+	
+	
 }

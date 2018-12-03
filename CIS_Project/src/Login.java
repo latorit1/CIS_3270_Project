@@ -46,7 +46,7 @@ public class Login {
 				lblLogin.setText("Admin Login Success");
 				Stage primaryStage = new Stage();
 				Parent root = FXMLLoader.load(getClass().getResource("Main.fxml"));
-				Scene scene = new Scene(root, 400, 400);
+				Scene scene = new Scene(root, 700, 500);
 				primaryStage.setScene(scene);
 				primaryStage.show();
 				}
@@ -56,7 +56,7 @@ public class Login {
 					lblLogin.setText("User and Password is correct");
 					Stage primaryStage = new Stage();
 					Parent root = FXMLLoader.load(getClass().getResource("Main.fxml"));
-					Scene scene = new Scene(root, 400, 400);
+					Scene scene = new Scene(root, 700, 500);
 					primaryStage.setScene(scene);
 					primaryStage.show();
 				} else {

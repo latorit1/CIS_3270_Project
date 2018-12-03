@@ -1,8 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1">
-	<!-- TODO Add Nodes -->
+<AnchorPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main">
+   <children>
+      <Pane prefHeight="116.0" prefWidth="701.0" style="-fx-background-color: #EA6262;">
+         <children>
+            <Text layoutX="29.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search Flights">
+               <font>
+                  <Font name="AppleGothic Regular" size="24.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <TextField fx:id="txtFromCity" layoutX="22.0" layoutY="156.0" promptText="From City (City, State)" />
+      <TextField fx:id="txtToCity" layoutX="22.0" layoutY="208.0" promptText="To City (City, State)" />
+      <TextField fx:id="txtDate" layoutX="22.0" layoutY="251.0" promptText="Date mm/dd/yyyy" />
+      <TextField fx:id="txtDepartureTime" layoutX="23.0" layoutY="293.0" promptText="Departure Time hh:mm" />
+      <Button layoutX="27.0" layoutY="415.0" mnemonicParsing="false" onAction="#Search" text="Search">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+      <TextField fx:id="txtArrivalTime" layoutX="22.0" layoutY="333.0" promptText="Arrival Time hh:mm" />
+      <Label layoutX="275.0" layoutY="156.0" text="Available Flights">
+         <font>
+            <Font name="AppleGothic Regular" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="Flight1" layoutX="277.0" layoutY="204.0" text="Flight 1">
+         <font>
+            <Font name="AppleGothic Regular" size="23.0" />
+         </font>
+      </Label>
+   </children>
 </AnchorPane>
-
