@@ -19,7 +19,7 @@ import java.util.Scanner;
 	
 	private int passengerCount;
 	private int maxCapacity;
-	HashMap<String,Users> passengerList = new HashMap<String,Users>();//hashmap containing all passengers, will use userName as the key
+	private HashMap<String,Users> passengerList = new HashMap<String,Users>();//hashmap containing all passengers, will use userName as the key
 	
 	
 	//Date and time formatters. 
@@ -148,7 +148,7 @@ import java.util.Scanner;
 	}
 	//check to see if flight is full. 
 	boolean getIsFull(){
-		return this.passengerCount>=this.maxCapacity;//if passenger COunt is greater than or equal to the max capacity of the flight, will inform user that flight is full and prevent them from booking the flight
+		return this.passengerList.size()>=this.maxCapacity;//if size of passengerList<> is greater than or equal to the max capacity of the flight, will inform user that flight is full and prevent them from booking the flight
 	}
 	Integer getFlightNumber(){
 		return flightNumber;
@@ -162,6 +162,9 @@ import java.util.Scanner;
 		}
 		//Method will add the user to the passengerList using the 
 		passengerList.put(str,DataStorage.getUserList().get(str));//should return userList<> and allow you to use the get() method to return the User assigned to that key
+	}
+	void removePassenger(String str){
+		passengerList.remove(str,DataStorage.getUserList().get(str));
 	}
 	@Override
 	public String toString(){//getting error message on departure Time
