@@ -19,7 +19,7 @@ import java.util.Scanner;
 	
 	private int passengerCount;
 	private int maxCapacity;
-	HashMap<String,Users> passengerList = new HashMap<String,Users>();//hashmap containing all passengers, will use userName as the key
+	private HashMap<String,Users> passengerList = new HashMap<String,Users>();//hashmap containing all passengers, will use userName as the key
 	
 	
 	//Date and time formatters. 

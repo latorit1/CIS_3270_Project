@@ -19,7 +19,7 @@ public abstract class Users {
 	private String SSN;
 	private String addressCity;
 	private String addressState;
-	HashMap<Integer,Flights> bookedFlights = new HashMap<Integer,Flights>();
+	private HashMap<Integer,Flights> bookedFlights = new HashMap<Integer,Flights>();
 	
 	void setFirstName(){
 		System.out.println("Enter user's first name");
