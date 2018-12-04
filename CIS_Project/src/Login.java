@@ -1,3 +1,4 @@
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -44,21 +45,25 @@ public class Login {
 			
 			if(txtUsername.getText().equals("admin") && txtPassword.getText().equals("CIS3270")) {
 				lblLogin.setText("Admin Login Success");
-				Stage primaryStage = new Stage();
-				Parent root = FXMLLoader.load(getClass().getResource("Main.fxml"));
-				Scene scene = new Scene(root, 700, 500);
-				primaryStage.setScene(scene);
-				primaryStage.show();
+				Parent RegParent = FXMLLoader.load(getClass().getResource("Main.fxml"));
+		        Scene RegScene = new Scene(RegParent);
+		        
+		        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+		        
+		        window.setScene(RegScene);
+		        window.show();
 				}
 			
 			if (txtUsername.getText().length() != 0 || txtPassword.getText().length() != 0) {
 				if(login.isUser(txtUsername.getText(), txtPassword.getText())) {
 					lblLogin.setText("User and Password is correct");
-					Stage primaryStage = new Stage();
-					Parent root = FXMLLoader.load(getClass().getResource("Main.fxml"));
-					Scene scene = new Scene(root, 700, 500);
-					primaryStage.setScene(scene);
-					primaryStage.show();
+					Parent RegParent = FXMLLoader.load(getClass().getResource("Main.fxml"));
+			        Scene RegScene = new Scene(RegParent);
+			        
+			        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+			        
+			        window.setScene(RegScene);
+			        window.show();
 				} else {
 					lblLogin.setText("User and Password does not exist, please register");
 					}			
