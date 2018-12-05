@@ -15,6 +15,11 @@
                   <Font name="AppleGothic Regular" size="24.0" />
                </font>
             </Text>
+            <Button layoutX="655.0" layoutY="41.0" mnemonicParsing="false" onAction="#viewAccount" style="-fx-background-color: #000000;" text="View Account" textFill="#d31717">
+               <font>
+                  <Font name="AppleGothic Regular" size="16.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
       <TextField fx:id="txtFromCity" layoutX="22.0" layoutY="156.0" promptText="From City (City, State)" />
@@ -27,7 +32,7 @@
          </font>
       </Button>
       <TextField fx:id="txtArrivalTime" layoutX="22.0" layoutY="333.0" promptText="Arrival Time hh:mm" />
-      <Label layoutX="275.0" layoutY="156.0" text="Available Flights">
+      <Label layoutX="235.0" layoutY="157.0" text="Available Flights">
          <font>
             <Font name="AppleGothic Regular" size="18.0" />
          </font>
@@ -37,5 +42,21 @@
       <ListView fx:id="list3" layoutX="422.0" layoutY="203.0" prefHeight="200.0" prefWidth="81.0" />
       <ListView fx:id="list4" layoutX="503.0" layoutY="203.0" prefHeight="200.0" prefWidth="106.0" />
       <ListView fx:id="list5" layoutX="609.0" layoutY="203.0" prefHeight="200.0" prefWidth="106.0" />
+      <Text layoutX="235.0" layoutY="454.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Book a flight">
+         <font>
+            <Font name="AppleGothic Regular" size="19.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtFlightID" layoutX="235.0" layoutY="460.0" prefHeight="4.0" prefWidth="174.0" promptText="Type the Flight ID" />
+      <Button layoutX="422.0" layoutY="460.0" mnemonicParsing="false" onAction="#Book" style="-fx-background-color: #EA6262;" text="Submit">
+         <font>
+            <Font name="AppleGothic Regular" size="13.0" />
+         </font>
+      </Button>
+      <Button layoutX="715.0" layoutY="455.0" mnemonicParsing="false" onAction="#Logout" style="-fx-background-color: #EA6262;" text="Logout">
+         <font>
+            <Font name="AppleGothic Regular" size="18.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

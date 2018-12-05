@@ -1,8 +1,10 @@
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import java.io.IOException;
@@ -26,6 +28,7 @@ public class Login {
 	@FXML
 	private TextField txtPassword;
 	
+	public String UserID;
 	
 	//Connection test
 	public Login () throws SQLException {
@@ -65,15 +68,21 @@ public class Login {
 			        window.setScene(RegScene);
 			        window.show();
 				} else {
-					lblLogin.setText("User and Password does not exist, please register");
+					Alert alert = new Alert(AlertType.INFORMATION);
+					alert.setTitle("User");
+					alert.setContentText("User and Password does not exist, please register.");
+					alert.showAndWait();
 					}			
 			} else {
-				lblLogin.setText("Please input a username and password");
+				Alert alert = new Alert(AlertType.INFORMATION);
+				alert.setTitle("User");
+				alert.setContentText("Please input a username or password.");
+				alert.showAndWait();
 				}
 			
 			}	 
 			catch (SQLException e) {
-				lblLogin.setText("User and Password is not correct");
+				
 				e.printStackTrace();
 		}
 	}
@@ -81,11 +90,13 @@ public class Login {
 	public void RegistrationButton (ActionEvent event) {
 		
 		try {
-			Stage primaryStage = new Stage();
-			Parent root = FXMLLoader.load(getClass().getResource("Registration.fxml"));
-			Scene scene = new Scene(root, 700, 400);
-			primaryStage.setScene(scene);
-			primaryStage.show();
+			Parent RegParent = FXMLLoader.load(getClass().getResource("Registration.fxml"));
+	        Scene RegScene = new Scene(RegParent);
+	        
+	        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+	        
+	        window.setScene(RegScene);
+	        window.show();
 			
 		}
 		catch (Exception e) {
