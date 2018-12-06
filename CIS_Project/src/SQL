@@ -1,0 +1,67 @@
+CREATE TABLE User (
+	UserID 		int(5) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    firstName		varchar(15),
+    lastName 	varchar(15),
+    address		varchar(35),
+    zipCode		varchar(5),
+    state			varchar(15),
+	username 	varchar(15),
+    password		varchar(15),
+    email			varchar(30),
+    SSN				varchar(15),
+    secQ			varchar(50),
+    secA			varchar(50)
+    );
+    
+CREATE TABLE Administrator (
+	AdminID				int(5) PRIMARY KEY,
+    booedkFlightInfo	varchar(35),
+    UserID 				int,
+    FOREIGN KEY (UserID) REFERENCES User(UserID)
+    ON DELETE CASCADE
+    );
+    
+CREATE TABLE Customer (
+	CustomerID				int(5) PRIMARY KEY,
+    bookedFlightInfo		varchar(35),
+    UserID 					int,
+    FOREIGN KEY (UserID) REFERENCES User(UserID)
+    ON DELETE CASCADE
+    );
+    
+CREATE TABLE Flight (
+	FlightID					varchar(10) PRIMARY KEY,
+    cityOrigin					varchar(20),
+    cityDestination 		varchar(20),
+    flightDate					varchar(10),
+    flightDeparture		varchar(10),
+    flightArrival				varchar(10),
+    numOfPassengers	int(3),
+    totalSeats				int(3)
+    );
+    
+CREATE TABLE Booking (
+	BookingID	varchar(15),
+    FlightID 		varchar(10),
+    UserID 		int,
+    FOREIGN KEY (FlightID) REFERENCES Flight(FlightID),
+    FOREIGN KEY (UserID) REFERENCES User(UserID)
+    ); 
+    
+
+INSERT INTO Flight (FlightID, cityOrigin, cityDestination, flightDate, flightDeparture, flightArrival, numOfPassengers, totalSeats) VALUES ('AK2491', 'Atlanta, GA', 'Denver, CO', '05/10/2018', '8:30am', '12:30pm', '50', '70');
+
+INSERT INTO User(UserID, username, password) VALUES ('1', 'ah220', 'cis3270');
+
+INSERT INTO Flight (FlightID, cityOrigin, cityDestination, flightDate, flightDeparture, flightArrival, numOfPassengers, totalSeats) VALUES ('WQ2112', 'Miami, FL', 'Atlanta, GA', '08/10/2018', '8:30am', '12:30pm', '50', '70');
+
+INSERT INTO Flight (FlightID, cityOrigin, cityDestination, flightDate, flightDeparture, flightArrival, numOfPassengers, totalSeats) VALUES ('WA2422', 'Chattanooga, TN', 'Atlanta, GA', '08/10/2018', '8:30am', '12:30pm', '50', '70');
+
+INSERT INTO Flight (FlightID, cityOrigin, cityDestination, flightDate, flightDeparture, flightArrival, numOfPassengers, totalSeats) VALUES ('WQ2112', 'Miami, FL', 'Atlanta, GA', '08/10/2018', '8:30am', '12:30pm', '50', '70');
+
+INSERT INTO Flight (FlightID, cityOrigin, cityDestination, flightDate, flightDeparture, flightArrival, numOfPassengers, totalSeats) VALUES ('QH3893', 'Tallahasee, TN', 'Atlanta, GA', '02/10/2018', '7:30am', '12:30pm', '44', '70');
+
+INSERT INTO Flight (FlightID, cityOrigin, cityDestination, flightDate, flightDeparture, flightArrival, numOfPassengers, totalSeats) VALUES ('YW1024', 'Nashville, TN', 'Atlanta, GA', '01/19/2018', '8:30am', '9:30pm', '50', '70');
+
+INSERT INTO User (UserID, username, password) VALUES ('2', 'admin', 'CIS3270');
+
