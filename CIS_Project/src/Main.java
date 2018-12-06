@@ -71,6 +71,8 @@ public class Main {
 		ObservableList<String> data3 = FXCollections.observableArrayList();
 		ObservableList<String> data4 = FXCollections.observableArrayList();
 		ObservableList<String> data5 = FXCollections.observableArrayList();
+		
+		
 		PreparedStatement ps = null;
 		ResultSet result = null;
 		Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sys", "root", "AppDevCIS2018");
@@ -154,7 +156,30 @@ public class Main {
         
         window.setScene(RegScene);
         window.show();
+			
+		}
+	
+	public void addFlight(ActionEvent event) throws SQLException, IOException {
+		Parent RegParent = FXMLLoader.load(getClass().getResource("AddFlight.fxml"));
+        Scene RegScene = new Scene(RegParent);
+        
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        
+        window.setScene(RegScene);
+        window.show();
+			
+		}
 		
-	}	
+	
+	public void FlightMenu(ActionEvent event) throws SQLException, IOException {
+		Parent RegParent = FXMLLoader.load(getClass().getResource("Main.fxml"));
+        Scene RegScene = new Scene(RegParent);
+        
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        
+        window.setScene(RegScene);
+        window.show();
+		
+	}
 	
 }

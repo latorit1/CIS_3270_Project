@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AddFlight">
+   <children>
+      <Pane prefHeight="116.0" prefWidth="804.0" style="-fx-background-color: #EA6262;">
+         <children>
+            <Text layoutX="29.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add a new Flight">
+               <font>
+                  <Font name="AppleGothic Regular" size="24.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <TextField fx:id="txtArrival" layoutX="24.0" layoutY="293.0" promptText="Arrival Time hh:mm">
+         <font>
+            <Font name="AppleGothic Regular" size="13.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtDeparture" layoutX="24.0" layoutY="243.0" promptText="Departure Time hh:mm">
+         <font>
+            <Font name="AppleGothic Regular" size="13.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtDate" layoutX="24.0" layoutY="199.0" promptText="Date hh/mm/yyyy">
+         <font>
+            <Font name="AppleGothic Regular" size="13.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtDest" layoutX="432.0" layoutY="151.0" prefHeight="28.0" prefWidth="235.0" promptText="Destination (city, state abbreviation)">
+         <font>
+            <Font name="AppleGothic Regular" size="13.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtOrigin" layoutX="206.0" layoutY="151.0" prefHeight="28.0" prefWidth="215.0" promptText="Origin (city, state abbreviation)">
+         <font>
+            <Font name="AppleGothic Regular" size="13.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtID" layoutX="24.0" layoutY="151.0" promptText="FlightID">
+         <font>
+            <Font name="AppleGothic Regular" size="13.0" />
+         </font>
+      </TextField>
+      <Button layoutX="32.0" layoutY="373.0" mnemonicParsing="false" onAction="#addFlight" prefHeight="38.0" prefWidth="161.0" style="-fx-background-color: #EA6262;" text="Add Flight">
+         <font>
+            <Font name="AppleGothic Regular" size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="667.0" layoutY="448.0" mnemonicParsing="false" onAction="#FlightMenu" style="-fx-background-color: #EA6262;" text="Main Menu">
+         <font>
+            <Font name="AppleGothic Regular" size="18.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

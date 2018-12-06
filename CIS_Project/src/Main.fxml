@@ -20,10 +20,15 @@
                   <Font name="AppleGothic Regular" size="16.0" />
                </font>
             </Button>
+            <Button layoutX="415.0" layoutY="40.0" mnemonicParsing="false" onAction="#addFlight" style="-fx-background-color: #000000;" text="Add a Flight" textFill="#d31717">
+               <font>
+                  <Font name="AppleGothic Regular" size="16.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
-      <TextField fx:id="txtFromCity" layoutX="22.0" layoutY="156.0" promptText="From City (City, State)" />
-      <TextField fx:id="txtToCity" layoutX="22.0" layoutY="208.0" promptText="To City (City, State)" />
+      <TextField fx:id="txtFromCity" layoutX="22.0" layoutY="156.0" prefHeight="27.0" prefWidth="190.0" promptText="From City (City, State abbr.)" />
+      <TextField fx:id="txtToCity" layoutX="22.0" layoutY="208.0" prefHeight="27.0" prefWidth="190.0" promptText="To City (City, State abbr.)" />
       <TextField fx:id="txtDate" layoutX="22.0" layoutY="251.0" promptText="Date mm/dd/yyyy" />
       <TextField fx:id="txtDepartureTime" layoutX="23.0" layoutY="293.0" promptText="Departure Time hh:mm" />
       <Button layoutX="27.0" layoutY="415.0" mnemonicParsing="false" onAction="#Search" text="Search">
